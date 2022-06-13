@@ -15,8 +15,14 @@ jobs:
       - name: Analyze
         id: analyze
         uses: zentered/issue-forms-body-parser@v1.4.3
-      - run: echo '${{ toJSON(github.event) }}'
-      - run: echo '${{ toJSON(steps.analyze.outputs.data) }}'
+      - run: |
+          cat << EOF
+          '${{ toJSON(github.event) }}'
+          EOF
+      - run: |
+          cat << EOF
+          '${{ toJSON(steps.analyze.outputs.data) }}'
+          EOF
       
       - name: Add comment
         uses: peter-evans/create-or-update-comment@v2.0.0
