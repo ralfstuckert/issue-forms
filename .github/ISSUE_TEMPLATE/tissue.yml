@@ -1,7 +1,8 @@
 name: Bogus Report
 description: File a bug report
 title: "[Bogus]: "
-labels: ["bogus"]
+labels: 
+  - bogus
 assignees:
   - ralfstuckert
 body:
