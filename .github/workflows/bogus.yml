@@ -16,7 +16,7 @@ jobs:
       - name: Analyze
         id: analyze
         uses: zentered/issue-forms-body-parser@v1
-      - run: echo "${{ JSON.stringify(steps.analyze.outputs.data) }}"  
+      - run: echo "${{ fromJSON(steps.analyze.outputs.data) }}"  
       
       - name: Add comment
         uses: peter-evans/create-or-update-comment@v2
