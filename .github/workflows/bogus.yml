@@ -3,13 +3,11 @@ name: Bugus Created
 on:
   issues:
     types:
-      - opened
-      - edited
-#      - labeled
+      - labeled
       
 jobs:
   bogus:
-#    if: github.event.label.name == 'bogus'
+    if: github.event.label.name == 'bogus'
     runs-on: ubuntu-latest
     permissions:
       issues: write
