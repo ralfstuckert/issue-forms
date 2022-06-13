@@ -16,11 +16,11 @@ jobs:
     steps:
       - name: Analyze
         id: analyze
-        uses: zentered/issue-forms-body-parser@v1
+        uses: zentered/issue-forms-body-parser@v1.4.3
       - run: echo "${{ fromJSON(steps.analyze.outputs.data) }}"  
       
       - name: Add comment
-        uses: peter-evans/create-or-update-comment@v2
+        uses: peter-evans/create-or-update-comment@v2.0.0
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
