@@ -21,7 +21,7 @@ jobs:
           EOF
       - run: |
           cat << EOF
-          '${{ toJSON(steps.analyze.outputs.data) }}'
+          '${{ steps.analyze.outputs.data }}'
           EOF
       
       - name: Add comment
