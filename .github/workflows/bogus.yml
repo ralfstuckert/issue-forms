@@ -1,0 +1,25 @@
+name: Bugus Created
+
+on:
+  issues:
+    types:
+      - created
+      
+jobs:
+  bogus:
+    if: github.event.label.name == 'help-wanted'
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Analyze
+        id: analyze
+        uses: zentered/issue-forms-body-parser@v1
+      - run: echo "${{ JSON.stringify(steps.analyze.outputs.data) }}"  
+      
+      - name: Add comment
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            This issue is available for anyone to work on. **Make sure to reference this issue in your pull request.** :sparkles: Thank you for your contribution! :sparkles:
