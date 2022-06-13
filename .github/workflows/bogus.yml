@@ -3,7 +3,7 @@ name: Bugus Created
 on:
   issues:
     types:
-      - created
+      - labeled
       
 jobs:
   bogus:
